@@ -17,10 +17,21 @@ Public Class Waterbody
     Private _Type As String
     Private _Volume As Double
 
-    'Public Sub New() ....(Valencia) it might not be needed but , i just like having a constructor 
-    '    _Type = " "       to init the variables , when i dont have a parameterized one 
-    '    _Volume = 0.0
-    'End Sub
+
+    Const DefVolume As Double = 50
+    Const DefType As String = " "
+
+    ' Default constructor with default values
+    Public Sub New()
+        _Type = DefType
+        _Volume = DefVolume
+    End Sub
+
+    ' Parameterized constructor
+    Public Sub New(t As String, v As Double)
+        _Type = t
+        _Volume = v
+    End Sub
 
     'property methods
     Public Property Type As String

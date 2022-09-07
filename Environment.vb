@@ -168,24 +168,27 @@ Public MustInherit Class Environment
         Return total
     End Function
 
-    'determines if population increased or not      not sure though... (Karabo)
-    Public Function growth(originalValue As Integer) As String Implements IEnvironment.Growth
-        Dim Response As String
-        Dim totalpopulation As Integer = OverallTotalPop()
+    'Utility function for the Response
+    Private Function DetermineResponse(originalValue As Integer, totalpopulation As Integer) As String
         If originalValue > totalpopulation Then
-            Response = "Growth"
+            Return "Growth"
         Else
             If originalValue = totalpopulation Then
-                Response = "Stagnant"
-                Return Response
+                Return "Stagnant"
             End If
-            Response = "Decline"
-
+            ' Note that this is the same as making it an else
+            Return "Decline"
         End If
-        Return Response
-
     End Function
 
+    'determines if population increased or not      not sure though... (Karabo)
+    Public Function growth(originalValue As Integer) As String Implements IEnvironment.Growth
+        Dim totalpopulation As Integer = OverallTotalPop()
+
+        Return DetermineResponse(originalValue, totalpopulation)
+    End Function
+
+    ' This Function is calculated differently in the settlement 
     Public Overridable Function OverallTotalPop() As Integer Implements IEnvironment.OverallTotalPop
         Return AnimalTot() + PlantTot()
     End Function

@@ -5,7 +5,7 @@ Option Infer Off
 ' Team Number: 18
 ' Team Member 1 Details: Maheso, MV (222058372)
 ' Team Member 2 Details: Mabunda, XM (222030885)
-' Team Member 3 Details: Surname, Initials (Student #)
+' Team Member 3 Details: Sethaba, AT (Student #)
 ' Team Member 4 Details: Mosiane, K (222018434)
 ' Practical: Team Project
 ' Class name: Environment
@@ -23,6 +23,12 @@ Public Class frmEnvironmental
     Private NumYears As Integer
     Private TotalPopulation() As Integer
     Private Densities() As Double
+
+    ' These are default sizes of the grids 
+    Enum DefaultValues
+        Grid1Size = 6
+        Grid2Size = 5
+    End Enum
 
     '>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>                     Sub Routines and Functions              <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
     ' Used to display in the first grid
@@ -53,8 +59,8 @@ Public Class frmEnvironmental
     ' We use this sub once: Label both grids
     Private Sub LabelGrid()
         ' The default size
-        ResizeGrid(5)
-        ResizeGrid(1, 6)
+        ResizeGrid(DefaultValues.Grid2Size)
+        ResizeGrid(1, DefaultValues.Grid1Size)
 
         ' Label the first grid
         PlaceIG1(0, 0, "Name")
@@ -171,7 +177,7 @@ Public Class frmEnvironmental
         NumYears = CInt(txtnYears.Text)
 
         ' Use the infro to resize the Grid Array
-        ResizeGrid(EnviroCount, 6)
+        ResizeGrid(EnviroCount, DefaultValues.Grid1Size)
         ReDim objEnronment(EnviroCount)
         ReDim TotalPopulation(EnviroCount)
         ReDim Densities(EnviroCount)

@@ -1,4 +1,14 @@
-﻿Public Interface IEnvironment
+﻿' *****************************************************************
+' Team Number: 18
+' Team Member 1 Details: Maheso, MV (222058372)
+' Team Member 2 Details: Mabunda, XM (222030885)
+' Team Member 3 Details: Sethaba, AT (Student #)
+' Team Member 4 Details: Mosiane, K (222018434)
+' Practical: Team Project
+' Class name: IEnvironment
+' *****************************************************************
+
+Public Interface IEnvironment
     Property Name As String
     Property Location As String
     Property Size As Double
