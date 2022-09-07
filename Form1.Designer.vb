@@ -24,9 +24,9 @@ Partial Class frmEnvironmental
     Private Sub InitializeComponent()
         Me.btnInput = New System.Windows.Forms.Button()
         Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.grdDetails = New UJGrid.UJGrid()
         Me.btnShowDetails = New System.Windows.Forms.Button()
         Me.btnTotalPopulation = New System.Windows.Forms.Button()
-        Me.btnDensity = New System.Windows.Forms.Button()
         Me.Panel3 = New System.Windows.Forms.Panel()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
@@ -34,6 +34,9 @@ Partial Class frmEnvironmental
         Me.btnStart = New System.Windows.Forms.Button()
         Me.txtnYears = New System.Windows.Forms.TextBox()
         Me.txtEnviroCount = New System.Windows.Forms.TextBox()
+        Me.grdYearsEnviro = New UJGrid.UJGrid()
+        Me.btnResponse = New System.Windows.Forms.Button()
+        Me.btnDensity = New System.Windows.Forms.Button()
         Me.Panel2.SuspendLayout()
         Me.Panel3.SuspendLayout()
         Me.SuspendLayout()
@@ -50,16 +53,28 @@ Partial Class frmEnvironmental
         'Panel2
         '
         Me.Panel2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+        Me.Panel2.Controls.Add(Me.grdDetails)
         Me.Panel2.Controls.Add(Me.btnShowDetails)
-        Me.Panel2.Location = New System.Drawing.Point(443, 12)
+        Me.Panel2.Location = New System.Drawing.Point(433, 16)
         Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(284, 393)
+        Me.Panel2.Size = New System.Drawing.Size(284, 215)
         Me.Panel2.TabIndex = 2
+        '
+        'grdDetails
+        '
+        Me.grdDetails.FixedCols = 1
+        Me.grdDetails.FixedRows = 1
+        Me.grdDetails.Location = New System.Drawing.Point(3, 42)
+        Me.grdDetails.Margin = New System.Windows.Forms.Padding(5)
+        Me.grdDetails.Name = "grdDetails"
+        Me.grdDetails.Scrollbars = System.Windows.Forms.ScrollBars.Both
+        Me.grdDetails.Size = New System.Drawing.Size(272, 155)
+        Me.grdDetails.TabIndex = 3
         '
         'btnShowDetails
         '
         Me.btnShowDetails.BackColor = System.Drawing.SystemColors.ControlLight
-        Me.btnShowDetails.Location = New System.Drawing.Point(79, 9)
+        Me.btnShowDetails.Location = New System.Drawing.Point(79, 3)
         Me.btnShowDetails.Name = "btnShowDetails"
         Me.btnShowDetails.Size = New System.Drawing.Size(128, 34)
         Me.btnShowDetails.TabIndex = 0
@@ -75,15 +90,6 @@ Partial Class frmEnvironmental
         Me.btnTotalPopulation.Text = "Total Population"
         Me.btnTotalPopulation.UseVisualStyleBackColor = True
         '
-        'btnDensity
-        '
-        Me.btnDensity.Location = New System.Drawing.Point(270, 95)
-        Me.btnDensity.Name = "btnDensity"
-        Me.btnDensity.Size = New System.Drawing.Size(129, 33)
-        Me.btnDensity.TabIndex = 0
-        Me.btnDensity.Text = "Density"
-        Me.btnDensity.UseVisualStyleBackColor = True
-        '
         'Panel3
         '
         Me.Panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
@@ -95,13 +101,13 @@ Partial Class frmEnvironmental
         Me.Panel3.Controls.Add(Me.txtEnviroCount)
         Me.Panel3.Location = New System.Drawing.Point(13, 16)
         Me.Panel3.Name = "Panel3"
-        Me.Panel3.Size = New System.Drawing.Size(231, 163)
+        Me.Panel3.Size = New System.Drawing.Size(231, 150)
         Me.Panel3.TabIndex = 2
         '
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(71, -1)
+        Me.Label3.Location = New System.Drawing.Point(84, 4)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(54, 17)
         Me.Label3.TabIndex = 4
@@ -128,7 +134,7 @@ Partial Class frmEnvironmental
         'btnStart
         '
         Me.btnStart.BackColor = System.Drawing.SystemColors.ControlLight
-        Me.btnStart.Location = New System.Drawing.Point(43, 111)
+        Me.btnStart.Location = New System.Drawing.Point(41, 97)
         Me.btnStart.Name = "btnStart"
         Me.btnStart.Size = New System.Drawing.Size(135, 33)
         Me.btnStart.TabIndex = 0
@@ -149,12 +155,43 @@ Partial Class frmEnvironmental
         Me.txtEnviroCount.Size = New System.Drawing.Size(50, 25)
         Me.txtEnviroCount.TabIndex = 1
         '
+        'grdYearsEnviro
+        '
+        Me.grdYearsEnviro.FixedCols = 1
+        Me.grdYearsEnviro.FixedRows = 1
+        Me.grdYearsEnviro.Location = New System.Drawing.Point(14, 250)
+        Me.grdYearsEnviro.Margin = New System.Windows.Forms.Padding(5)
+        Me.grdYearsEnviro.Name = "grdYearsEnviro"
+        Me.grdYearsEnviro.Scrollbars = System.Windows.Forms.ScrollBars.Both
+        Me.grdYearsEnviro.Size = New System.Drawing.Size(704, 196)
+        Me.grdYearsEnviro.TabIndex = 3
+        '
+        'btnResponse
+        '
+        Me.btnResponse.Location = New System.Drawing.Point(270, 94)
+        Me.btnResponse.Name = "btnResponse"
+        Me.btnResponse.Size = New System.Drawing.Size(129, 33)
+        Me.btnResponse.TabIndex = 0
+        Me.btnResponse.Text = "Response"
+        Me.btnResponse.UseVisualStyleBackColor = True
+        '
+        'btnDensity
+        '
+        Me.btnDensity.Location = New System.Drawing.Point(270, 133)
+        Me.btnDensity.Name = "btnDensity"
+        Me.btnDensity.Size = New System.Drawing.Size(129, 33)
+        Me.btnDensity.TabIndex = 4
+        Me.btnDensity.Text = "Density"
+        Me.btnDensity.UseVisualStyleBackColor = True
+        '
         'frmEnvironmental
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 17.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(741, 428)
+        Me.ClientSize = New System.Drawing.Size(734, 466)
         Me.Controls.Add(Me.btnDensity)
+        Me.Controls.Add(Me.grdYearsEnviro)
+        Me.Controls.Add(Me.btnResponse)
         Me.Controls.Add(Me.Panel2)
         Me.Controls.Add(Me.Panel3)
         Me.Controls.Add(Me.btnTotalPopulation)
@@ -173,7 +210,6 @@ Partial Class frmEnvironmental
     Friend WithEvents Panel2 As Panel
     Friend WithEvents btnShowDetails As Button
     Friend WithEvents btnTotalPopulation As Button
-    Friend WithEvents btnDensity As Button
     Friend WithEvents Panel3 As Panel
     Friend WithEvents Label3 As Label
     Friend WithEvents Label4 As Label
@@ -181,4 +217,8 @@ Partial Class frmEnvironmental
     Friend WithEvents btnStart As Button
     Friend WithEvents txtnYears As TextBox
     Friend WithEvents txtEnviroCount As TextBox
+    Friend WithEvents grdDetails As UJGrid.UJGrid
+    Friend WithEvents grdYearsEnviro As UJGrid.UJGrid
+    Friend WithEvents btnResponse As Button
+    Friend WithEvents btnDensity As Button
 End Class

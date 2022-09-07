@@ -115,12 +115,11 @@ Public Class Settlement
         Return total
     End Function
 
+    'Public Overrides Function Density() As Double
+    '    Return MyBase.Density()
+    'End Function
 
-    ' Overriding
-    Public Overrides Sub TotPop()
-        MyBase.TotPop()
-        ' Add people to the animals and plants
-        _TotalPopulation += _nPeople
-    End Sub
-
+    Public Overrides Function OverallTotalPop() As Integer
+        Return MyBase.OverallTotalPop() + _nPeople
+    End Function
 End Class

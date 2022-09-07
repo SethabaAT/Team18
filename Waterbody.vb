@@ -16,7 +16,6 @@ Option Infer Off
 Public Class Waterbody
     Private _Type As String
     Private _Volume As Double
-    Private _PolluttionRate As Double
 
     'Public Sub New() ....(Valencia) it might not be needed but , i just like having a constructor 
     '    _Type = " "       to init the variables , when i dont have a parameterized one 
