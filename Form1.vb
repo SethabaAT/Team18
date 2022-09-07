@@ -217,7 +217,7 @@ Public Class frmEnvironmental
             Else
                 ' Get foret info
                 PlaceIG2(5, 0, "Total Vol")
-                PlaceIG2(5, 1, CStr(obTemp3.TotalVol()))
+                PlaceIG2(5, 1, CStr(obTemp2.TotalVol()))
             End If
         End If
 

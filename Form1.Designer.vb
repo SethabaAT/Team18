@@ -42,9 +42,9 @@ Partial Class frmEnvironmental
         '
         'btnInput
         '
-        Me.btnInput.Location = New System.Drawing.Point(271, 18)
+        Me.btnInput.Location = New System.Drawing.Point(270, 16)
         Me.btnInput.Name = "btnInput"
-        Me.btnInput.Size = New System.Drawing.Size(129, 23)
+        Me.btnInput.Size = New System.Drawing.Size(129, 33)
         Me.btnInput.TabIndex = 0
         Me.btnInput.Text = "Input Data"
         Me.btnInput.UseVisualStyleBackColor = True
@@ -53,11 +53,11 @@ Partial Class frmEnvironmental
         '
         Me.grdYearsEnviro.FixedCols = 1
         Me.grdYearsEnviro.FixedRows = 1
-        Me.grdYearsEnviro.Location = New System.Drawing.Point(13, 216)
-        Me.grdYearsEnviro.Margin = New System.Windows.Forms.Padding(4)
+        Me.grdYearsEnviro.Location = New System.Drawing.Point(13, 222)
+        Me.grdYearsEnviro.Margin = New System.Windows.Forms.Padding(5, 5, 5, 5)
         Me.grdYearsEnviro.Name = "grdYearsEnviro"
         Me.grdYearsEnviro.Scrollbars = System.Windows.Forms.ScrollBars.Both
-        Me.grdYearsEnviro.Size = New System.Drawing.Size(467, 173)
+        Me.grdYearsEnviro.Size = New System.Drawing.Size(424, 184)
         Me.grdYearsEnviro.TabIndex = 3
         '
         'Panel2
@@ -65,45 +65,46 @@ Partial Class frmEnvironmental
         Me.Panel2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
         Me.Panel2.Controls.Add(Me.grdDetails)
         Me.Panel2.Controls.Add(Me.btnShowDetails)
-        Me.Panel2.Location = New System.Drawing.Point(487, 12)
+        Me.Panel2.Location = New System.Drawing.Point(443, 12)
         Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(284, 377)
+        Me.Panel2.Size = New System.Drawing.Size(284, 393)
         Me.Panel2.TabIndex = 2
         '
         'grdDetails
         '
         Me.grdDetails.FixedCols = 1
         Me.grdDetails.FixedRows = 1
-        Me.grdDetails.Location = New System.Drawing.Point(4, 39)
-        Me.grdDetails.Margin = New System.Windows.Forms.Padding(4)
+        Me.grdDetails.Location = New System.Drawing.Point(5, 51)
+        Me.grdDetails.Margin = New System.Windows.Forms.Padding(5, 5, 5, 5)
         Me.grdDetails.Name = "grdDetails"
         Me.grdDetails.Scrollbars = System.Windows.Forms.ScrollBars.Both
-        Me.grdDetails.Size = New System.Drawing.Size(272, 321)
+        Me.grdDetails.Size = New System.Drawing.Size(272, 333)
         Me.grdDetails.TabIndex = 3
         '
         'btnShowDetails
         '
-        Me.btnShowDetails.Location = New System.Drawing.Point(65, 4)
+        Me.btnShowDetails.BackColor = System.Drawing.SystemColors.ControlLight
+        Me.btnShowDetails.Location = New System.Drawing.Point(79, 9)
         Me.btnShowDetails.Name = "btnShowDetails"
-        Me.btnShowDetails.Size = New System.Drawing.Size(128, 23)
+        Me.btnShowDetails.Size = New System.Drawing.Size(128, 34)
         Me.btnShowDetails.TabIndex = 0
         Me.btnShowDetails.Text = "Show Details"
-        Me.btnShowDetails.UseVisualStyleBackColor = True
+        Me.btnShowDetails.UseVisualStyleBackColor = False
         '
         'btnTotalPopulation
         '
-        Me.btnTotalPopulation.Location = New System.Drawing.Point(271, 46)
+        Me.btnTotalPopulation.Location = New System.Drawing.Point(270, 55)
         Me.btnTotalPopulation.Name = "btnTotalPopulation"
-        Me.btnTotalPopulation.Size = New System.Drawing.Size(129, 23)
+        Me.btnTotalPopulation.Size = New System.Drawing.Size(129, 33)
         Me.btnTotalPopulation.TabIndex = 0
         Me.btnTotalPopulation.Text = "Total Population"
         Me.btnTotalPopulation.UseVisualStyleBackColor = True
         '
         'btnDensity
         '
-        Me.btnDensity.Location = New System.Drawing.Point(271, 74)
+        Me.btnDensity.Location = New System.Drawing.Point(270, 95)
         Me.btnDensity.Name = "btnDensity"
-        Me.btnDensity.Size = New System.Drawing.Size(129, 23)
+        Me.btnDensity.Size = New System.Drawing.Size(129, 33)
         Me.btnDensity.TabIndex = 0
         Me.btnDensity.Text = "Density"
         Me.btnDensity.UseVisualStyleBackColor = True
@@ -117,72 +118,74 @@ Partial Class frmEnvironmental
         Me.Panel3.Controls.Add(Me.btnStart)
         Me.Panel3.Controls.Add(Me.txtnYears)
         Me.Panel3.Controls.Add(Me.txtEnviroCount)
-        Me.Panel3.Location = New System.Drawing.Point(13, 15)
+        Me.Panel3.Location = New System.Drawing.Point(13, 16)
         Me.Panel3.Name = "Panel3"
-        Me.Panel3.Size = New System.Drawing.Size(211, 132)
+        Me.Panel3.Size = New System.Drawing.Size(231, 163)
         Me.Panel3.TabIndex = 2
         '
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(80, 0)
+        Me.Label3.Location = New System.Drawing.Point(71, -1)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(55, 16)
+        Me.Label3.Size = New System.Drawing.Size(54, 17)
         Me.Label3.TabIndex = 4
         Me.Label3.Text = "Settings"
         '
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(5, 37)
+        Me.Label4.Location = New System.Drawing.Point(13, 40)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(121, 16)
+        Me.Label4.Size = New System.Drawing.Size(125, 17)
         Me.Label4.TabIndex = 4
         Me.Label4.Text = "Environment  Count"
         '
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(5, 65)
+        Me.Label2.Location = New System.Drawing.Point(13, 69)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(108, 16)
+        Me.Label2.Size = New System.Drawing.Size(109, 17)
         Me.Label2.TabIndex = 4
         Me.Label2.Text = "Number of Years"
         '
         'btnStart
         '
-        Me.btnStart.Location = New System.Drawing.Point(33, 90)
+        Me.btnStart.BackColor = System.Drawing.SystemColors.ControlLight
+        Me.btnStart.Location = New System.Drawing.Point(43, 111)
         Me.btnStart.Name = "btnStart"
-        Me.btnStart.Size = New System.Drawing.Size(135, 23)
+        Me.btnStart.Size = New System.Drawing.Size(135, 33)
         Me.btnStart.TabIndex = 0
         Me.btnStart.Text = "Start Application"
-        Me.btnStart.UseVisualStyleBackColor = True
+        Me.btnStart.UseVisualStyleBackColor = False
         '
         'txtnYears
         '
-        Me.txtnYears.Location = New System.Drawing.Point(148, 62)
+        Me.txtnYears.Location = New System.Drawing.Point(157, 66)
         Me.txtnYears.Name = "txtnYears"
-        Me.txtnYears.Size = New System.Drawing.Size(49, 22)
+        Me.txtnYears.Size = New System.Drawing.Size(49, 25)
         Me.txtnYears.TabIndex = 1
         '
         'txtEnviroCount
         '
-        Me.txtEnviroCount.Location = New System.Drawing.Point(148, 34)
+        Me.txtEnviroCount.Location = New System.Drawing.Point(157, 36)
         Me.txtEnviroCount.Name = "txtEnviroCount"
-        Me.txtEnviroCount.Size = New System.Drawing.Size(50, 22)
+        Me.txtEnviroCount.Size = New System.Drawing.Size(50, 25)
         Me.txtEnviroCount.TabIndex = 1
         '
         'frmEnvironmental
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 17.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(783, 408)
+        Me.ClientSize = New System.Drawing.Size(741, 428)
         Me.Controls.Add(Me.grdYearsEnviro)
         Me.Controls.Add(Me.btnDensity)
         Me.Controls.Add(Me.Panel2)
         Me.Controls.Add(Me.Panel3)
         Me.Controls.Add(Me.btnTotalPopulation)
         Me.Controls.Add(Me.btnInput)
+        Me.Font = New System.Drawing.Font("Times New Roman", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Name = "frmEnvironmental"
         Me.Text = "Environmental Sustainability"
         Me.Panel2.ResumeLayout(False)
