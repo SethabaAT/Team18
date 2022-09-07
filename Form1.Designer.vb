@@ -23,9 +23,7 @@ Partial Class frmEnvironmental
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.btnInput = New System.Windows.Forms.Button()
-        Me.grdYearsEnviro = New UJGrid.UJGrid()
         Me.Panel2 = New System.Windows.Forms.Panel()
-        Me.grdDetails = New UJGrid.UJGrid()
         Me.btnShowDetails = New System.Windows.Forms.Button()
         Me.btnTotalPopulation = New System.Windows.Forms.Button()
         Me.btnDensity = New System.Windows.Forms.Button()
@@ -49,37 +47,14 @@ Partial Class frmEnvironmental
         Me.btnInput.Text = "Input Data"
         Me.btnInput.UseVisualStyleBackColor = True
         '
-        'grdYearsEnviro
-        '
-        Me.grdYearsEnviro.FixedCols = 1
-        Me.grdYearsEnviro.FixedRows = 1
-        Me.grdYearsEnviro.Location = New System.Drawing.Point(13, 222)
-        Me.grdYearsEnviro.Margin = New System.Windows.Forms.Padding(5, 5, 5, 5)
-        Me.grdYearsEnviro.Name = "grdYearsEnviro"
-        Me.grdYearsEnviro.Scrollbars = System.Windows.Forms.ScrollBars.Both
-        Me.grdYearsEnviro.Size = New System.Drawing.Size(424, 184)
-        Me.grdYearsEnviro.TabIndex = 3
-        '
         'Panel2
         '
         Me.Panel2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.Panel2.Controls.Add(Me.grdDetails)
         Me.Panel2.Controls.Add(Me.btnShowDetails)
         Me.Panel2.Location = New System.Drawing.Point(443, 12)
         Me.Panel2.Name = "Panel2"
         Me.Panel2.Size = New System.Drawing.Size(284, 393)
         Me.Panel2.TabIndex = 2
-        '
-        'grdDetails
-        '
-        Me.grdDetails.FixedCols = 1
-        Me.grdDetails.FixedRows = 1
-        Me.grdDetails.Location = New System.Drawing.Point(5, 51)
-        Me.grdDetails.Margin = New System.Windows.Forms.Padding(5, 5, 5, 5)
-        Me.grdDetails.Name = "grdDetails"
-        Me.grdDetails.Scrollbars = System.Windows.Forms.ScrollBars.Both
-        Me.grdDetails.Size = New System.Drawing.Size(272, 333)
-        Me.grdDetails.TabIndex = 3
         '
         'btnShowDetails
         '
@@ -179,7 +154,6 @@ Partial Class frmEnvironmental
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 17.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(741, 428)
-        Me.Controls.Add(Me.grdYearsEnviro)
         Me.Controls.Add(Me.btnDensity)
         Me.Controls.Add(Me.Panel2)
         Me.Controls.Add(Me.Panel3)
@@ -196,9 +170,7 @@ Partial Class frmEnvironmental
     End Sub
 
     Friend WithEvents btnInput As Button
-    Friend WithEvents grdYearsEnviro As UJGrid.UJGrid
     Friend WithEvents Panel2 As Panel
-    Friend WithEvents grdDetails As UJGrid.UJGrid
     Friend WithEvents btnShowDetails As Button
     Friend WithEvents btnTotalPopulation As Button
     Friend WithEvents btnDensity As Button
