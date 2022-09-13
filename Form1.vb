@@ -74,18 +74,18 @@ Public Class frmEnvironmental
         ' Label the second grid
         PlaceIG2(0, 0, "Name")
         PlaceIG2(1, 0, "Pollution Type")
-        PlaceIG2(2, 0, "Size")
+        PlaceIG2(2, 0, "Size (km^2)")
         PlaceIG2(3, 0, "Total Population")
-        PlaceIG2(4, 0, "Density")
+        PlaceIG2(4, 0, "Density (/km^2)")
     End Sub
 
     ' Gives the user choices to choose from
     Private Function Choices() As Integer
         ' Returns the option chosen if it is in range
-        Dim Choice As Integer = CInt(InputBox("Select a Number " & System.Environment.NewLine &
-                                            "1. Settlement" & System.Environment.NewLine &
-                                            "2. Wetland " & System.Environment.NewLine &
-                                            "3. Forest"))
+        Dim Choice As Integer = CInt(InputBox("Select a Number " & vbNewLine &
+                                              "1. Settlement" & vbNewLine &
+                                              "2. Wetland " & vbNewLine &
+                                              "3. Forest"))
 
         If Choice < 1 Or Choice > 3 Then
             Choices()
@@ -104,12 +104,11 @@ Public Class frmEnvironmental
             PlaceIG1(i, 0, Name) ' Names will be displayed immediately after being entered
 
             ' More inputs which are common to all Envoro classes
-            Dim Size As Double = CDbl(InputBox("Enter the size of " & Name))
+            Dim Size As Double = CDbl(InputBox("Enter the size of " & Name & " in (km^2)"))
             Dim Plants As Integer = CInt(InputBox("Enter the initial number of Plants in " & Name))
             Dim Animals As Integer = CInt(InputBox("Enter the initial number of animals in " & Name))
             Dim PollutionType As String = InputBox("Enter the Pollution type in " & Name)
-            Dim ReductionTarget As Double = CDbl(InputBox("Enter the reduction Target in " & Name))
-
+            Dim ReductionTarget As Double = CDbl(InputBox("Enter the reduction Target (Scale of 1 - 100) in " & Name))
 
             '*********************          Depending on the choice, a different class type will be created           **************************
             Select Case Choice
@@ -121,9 +120,9 @@ Public Class frmEnvironmental
                     objSettlement = New Settlement(NumYears, Name, Size, Plants, Animals, PollutionType, ReductionTarget, People, SettlementType)
 
                     '' There is some more stuff to add like emmissions blah blah blah 
-                    'For y As Integer = 1 To NumYears
-                    '    objSettlement.Emissions(y) = CInt(InputBox("Enter the Emmision Count for year " & CStr(y)))
-                    'Next
+                    For y As Integer = 1 To NumYears
+                        objSettlement.Emissions(y) = CInt(InputBox("Enter the Emmision Count for year " & CStr(y) & " in " & Name))
+                    Next
 
                     objEnronment(i) = objSettlement
                 Case 2 ' Wetland Class
@@ -135,8 +134,8 @@ Public Class frmEnvironmental
                     ' There are waterbodies stuff to add here
                     For w As Integer = 1 To WaterBodies
                         objWetLand.Waterbodies(w) = New Waterbody
-                        objWetLand.Waterbodies(w).Type = InputBox("Enter the type of Water body - " & CStr(w))
-                        objWetLand.Waterbodies(w).Volume = CDbl(InputBox("Enter the volume of water body - " & CStr(w)))
+                        objWetLand.Waterbodies(w).Type = InputBox("Enter the type of Water body - " & CStr(w) & " in " & Name)
+                        objWetLand.Waterbodies(w).Volume = CDbl(InputBox("Enter the volume (in km^3) of water body - " & CStr(w) & " in " & Name))
                     Next
 
                     objEnronment(i) = objWetLand
@@ -149,8 +148,8 @@ Public Class frmEnvironmental
                     ' There are waterbodies stuff to add here
                     For w As Integer = 1 To WaterBodies
                         objForest.Waterbodies(w) = New Waterbody
-                        objForest.Waterbodies(w).Type = InputBox("Enter the type of water body - " & CStr(w))
-                        objForest.Waterbodies(w).Volume = CDbl(InputBox("Enter the volume of water body - " & CStr(w)))
+                        objForest.Waterbodies(w).Type = InputBox("Enter the type of water body - " & CStr(w) & " in " & Name)
+                        objForest.Waterbodies(w).Volume = CDbl(InputBox("Enter the volume (in km^3) of water body - " & CStr(w) & " in " & Name))
                     Next
 
                     objEnronment(i) = objForest
@@ -190,10 +189,11 @@ Public Class frmEnvironmental
         For i As Integer = 1 To EnviroCount
             For y As Integer = 1 To NumYears
                 ' Input the number of plants and animals in each environment per year
-                objEnronment(i).AnimalPop(y) = CInt(InputBox("Enter the number of animals in year " & y))
-                objEnronment(i).PlantPop(y) = CInt(InputBox("Enter the number of plants in year " & y))
+                objEnronment(i).AnimalPop(y) = CInt(InputBox("Enter the number of animals in year " & y & " in " & objEnronment(i).Name()))
+                objEnronment(i).PlantPop(y) = CInt(InputBox("Enter the number of plants in year " & y & " in " & objEnronment(i).Name()))
             Next y
         Next i
+
     End Sub
 
     ' Total Population Button
@@ -211,8 +211,8 @@ Public Class frmEnvironmental
     Private Sub btnResponse_Click(sender As Object, e As EventArgs) Handles btnResponse.Click
         ' Diplays the response for plants and for animals
         For i As Integer = 1 To EnviroCount
-            PlaceIG1(i, 3, objEnronment(i).growth(objEnronment(i).PlantTot))
-            PlaceIG1(i, 5, objEnronment(i).growth(objEnronment(i).AnimalTot))
+            PlaceIG1(i, 5, objEnronment(i).growthA())
+            PlaceIG1(i, 3, objEnronment(i).growthP())
         Next i
     End Sub
 
@@ -220,7 +220,7 @@ Public Class frmEnvironmental
     Private Sub btnDensity_Click(sender As Object, e As EventArgs) Handles btnDensity.Click
         For i As Integer = 1 To EnviroCount
             Densities(i) = objEnronment(i).Density()
-            PlaceIG1(i, 6, CStr(Densities(i)))
+            PlaceIG1(i, 6, Format(Densities(i), "0.##"))
         Next i
     End Sub
 
@@ -228,32 +228,39 @@ Public Class frmEnvironmental
     Private Sub btnShowDetails_Click(sender As Object, e As EventArgs) Handles btnShowDetails.Click
         Dim Choice As Integer = CInt(InputBox("Select the Enviroment From 1 - " & CStr(EnviroCount)))
 
+        ' This runs if the input is out of range
+        If Choice <= 0 Or Choice > EnviroCount Then
+            MsgBox("Invalid Input " & vbNewLine &
+                   "Please enter a value between 1 and " & CStr(EnviroCount))
+            Return
+        End If
+
         ' Apply DownCasting and then display 
         PlaceIG2(0, 1, objEnronment(Choice).Name)
         PlaceIG2(1, 1, CStr(objEnronment(Choice).PollutionType))
         PlaceIG2(2, 1, CStr(objEnronment(Choice).Size))
         PlaceIG2(3, 1, CStr(TotalPopulation(Choice)))
-        PlaceIG2(4, 1, CStr(Densities(Choice)))
+        PlaceIG2(4, 1, Format(Densities(Choice), "0.##"))
 
         ' DownCasting
-        Dim obTemp As Settlement = TryCast(objEnronment(Choice), Settlement)
-        Dim obTemp2 As Forest = TryCast(objEnronment(Choice), Forest)
-        Dim obTemp3 As WetLand = TryCast(objEnronment(Choice), WetLand)
+        Dim obTempS As Settlement = TryCast(objEnronment(Choice), Settlement)
+        Dim obTempF As Forest = TryCast(objEnronment(Choice), Forest)
+        Dim obTempW As WetLand = TryCast(objEnronment(Choice), WetLand)
 
-        If obTemp2 Is Nothing And obTemp3 Is Nothing Then
+        If obTempF Is Nothing And obTempW Is Nothing Then
             ' Get Settlement info
             PlaceIG2(5, 0, "Settlement Type")
-            PlaceIG2(5, 1, CStr(obTemp.Settletype()))
+            PlaceIG2(5, 1, CStr(obTempS.Settletype()))
         Else
             ' There is total volume in the other two
             PlaceIG2(5, 0, "Total WaterBody (Vol)")
 
-            If obTemp Is Nothing And obTemp2 Is Nothing Then
+            If obTempS Is Nothing And obTempF Is Nothing Then
                 ' Get Wetalnd info
-                PlaceIG2(5, 1, CStr(obTemp3.TotalVol()))
+                PlaceIG2(5, 1, CStr(obTempW.TotalVol()))
             Else
                 ' Get forest info
-                PlaceIG2(5, 1, CStr(obTemp2.TotalVol()))
+                PlaceIG2(5, 1, CStr(obTempF.TotalVol()))
             End If
         End If
 

@@ -18,13 +18,7 @@ Public Class Settlement
 
     Private _SettleType As String
     Private _nPeople As Integer
-    Private _nVehicles As Integer
-    Private _SanitationRate As Integer
-    Private _nRenewables As Integer ' Variable for renewable energy
-    Private _RecycleReports As Integer 'Recycle Reports
     Private _Emissions() As Double 'percentage
-    Private _nIndustryActivities As Integer
-
 
     Public Sub New(nYears As Integer, n As String, s As Double, nPl As Integer, nA As Integer, pT As String, rT As Double, nP As Integer, sT As String)
         MyBase.New(nYears, n, s, nPl, nA, pT, rT)
@@ -44,20 +38,6 @@ Public Class Settlement
         End Set
     End Property
 
-    Public Property SanitationRate As Integer
-        Get
-            Return _SanitationRate
-        End Get
-        Set(value As Integer)
-            'validates to make sure its positive
-            If value < 0 Then
-                _SanitationRate = 0
-            Else
-                _SanitationRate = value
-            End If
-        End Set
-    End Property
-
     Public Property nPeople As Integer
         Get
             Return _nPeople
@@ -68,32 +48,6 @@ Public Class Settlement
                 _nPeople = 0
             Else
                 _nPeople = value
-            End If
-        End Set
-    End Property
-
-    Public Property nVehicles As Integer
-        Get
-            Return _nVehicles
-        End Get
-        Set(value As Integer)
-            If value < 0 Then
-                _nVehicles = 0
-            Else
-                _nVehicles = value
-            End If
-        End Set
-    End Property
-
-    Public Property nIndustryActivities As Integer
-        Get
-            Return _nIndustryActivities
-        End Get
-        Set(value As Integer)
-            If value < 0 Then
-                _nIndustryActivities = 0
-            Else
-                _nIndustryActivities = value
             End If
         End Set
     End Property
@@ -115,10 +69,7 @@ Public Class Settlement
         Return total
     End Function
 
-    'Public Overrides Function Density() As Double
-    '    Return MyBase.Density()
-    'End Function
-
+    ' Add People to the Plants and animals
     Public Overrides Function OverallTotalPop() As Integer
         Return MyBase.OverallTotalPop() + _nPeople
     End Function

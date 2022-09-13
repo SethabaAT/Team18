@@ -17,7 +17,7 @@ Public Class Waterbody
     Private _Type As String
     Private _Volume As Double
 
-
+    ' Constants
     Const DefVolume As Double = 50
     Const DefType As String = " "
 

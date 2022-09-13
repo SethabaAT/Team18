@@ -143,13 +143,6 @@ Public MustInherit Class Environment
         End Set
     End Property
 
-
-    'Public ReadOnly Property TotalPopulation As Integer
-    '    Get
-    '        Return _TotalPopulation
-    '    End Get
-    'End Property
-
     'Calculates population for animal and plant
     Public Function AnimalTot() As Integer Implements IEnvironment.AnimalTot
         'total for animal
@@ -170,22 +163,30 @@ Public MustInherit Class Environment
 
     'Utility function for the Response
     Private Function DetermineResponse(originalValue As Integer, totalpopulation As Integer) As String
+        Dim response As String = ""
+
         If originalValue > totalpopulation Then
-            Return "Growth"
+            response = "Growth"
         Else
             If originalValue = totalpopulation Then
-                Return "Stagnant"
+                response = "Stagnant"
+            Else
+                If originalValue < totalpopulation Then
+                    response = "Decline"
+                End If
             End If
-            ' Note that this is the same as making it an else
-            Return "Decline"
         End If
+
+        Return response
     End Function
 
-    'determines if population increased or not      not sure though... (Karabo)
-    Public Function growth(originalValue As Integer) As String Implements IEnvironment.Growth
-        Dim totalpopulation As Integer = OverallTotalPop()
+    'determines if population increased or not  
+    Public Function growthP() As String Implements IEnvironment.GrowthP
+        Return DetermineResponse(_nPlants, PlantTot)
+    End Function
 
-        Return DetermineResponse(originalValue, totalpopulation)
+    Public Function growthA() As String Implements IEnvironment.GrowthA
+        Return DetermineResponse(_nAnimals, AnimalTot)
     End Function
 
     ' This Function is calculated differently in the settlement 
@@ -193,9 +194,8 @@ Public MustInherit Class Environment
         Return AnimalTot() + PlantTot()
     End Function
 
-    'totalplants/size
     Public Function Density() As Double Implements IEnvironment.Density
-        ' Runs the total function then 
+        ' Runs the total function then divide by size
         Return OverallTotalPop() / _Size
     End Function
 

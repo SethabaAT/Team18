@@ -18,7 +18,6 @@ Public Class WetLand
     Inherits Environment
     Private _Waterbodies() As Waterbody
 
-
     'constructor
     Public Sub New(nYears As Integer, n As String, s As Double, nPl As Integer, nA As Integer, pT As String, rT As Double, nWaterbody As Integer)
         MyBase.New(nYears, n, s, nPl, nA, pT, rT)

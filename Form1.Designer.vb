@@ -147,6 +147,7 @@ Partial Class frmEnvironmental
         Me.txtnYears.Name = "txtnYears"
         Me.txtnYears.Size = New System.Drawing.Size(49, 25)
         Me.txtnYears.TabIndex = 1
+        Me.txtnYears.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'txtEnviroCount
         '
@@ -154,6 +155,7 @@ Partial Class frmEnvironmental
         Me.txtEnviroCount.Name = "txtEnviroCount"
         Me.txtEnviroCount.Size = New System.Drawing.Size(50, 25)
         Me.txtEnviroCount.TabIndex = 1
+        Me.txtEnviroCount.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'grdYearsEnviro
         '

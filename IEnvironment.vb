@@ -20,7 +20,8 @@ Public Interface IEnvironment
     Property ReductionTarget As Double
     Function AnimalTot() As Integer
     Function Plantot() As Integer
-    Function Growth(Value As Integer) As String
+    Function GrowthP() As String
+    Function GrowthA() As String
     Function OverallTotalPop() As Integer
     Function Density() As Double
 End Interface
